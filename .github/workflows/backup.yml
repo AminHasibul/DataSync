@@ -4,6 +4,8 @@ on:
   schedule:
     # Backs up database every day at 01:51 PM UTC
     - cron: '0 0 * * *'
+    push:
+      branches: master
 
 jobs:
   backup:
