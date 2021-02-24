@@ -5,7 +5,7 @@
 NOW="$(date +'%m-%d-%Y_%H-%M')"
 
 # Path to a temporary directory
-DIR=./home/mongodb_daily_dump
+DIR=./home/custodian/mongodb_daily_dump
 
 # Path to the target dropbox directory
 TARGET_DIR=/
