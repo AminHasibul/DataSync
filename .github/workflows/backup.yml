@@ -1,0 +1,23 @@
+name: Backup Database
+
+on:
+  schedule:
+    # Backs up database every day at 6:00 PM UTC
+    - cron: '0 0 * * *'
+
+jobs:
+  backup:
+    name: Backup
+    runs-on: ubuntu-latest
+      
+    steps:
+    - name: Git checkout files and create db directory
+      uses: actions/checkout@v2
+    - shell: bash
+      env:
+        MONGO_URI: ${{ secrets.MONGO_URI }}
+      # https://github.com/actions/virtual-environments/issues/1207
+      run: |
+        sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
+        mkdir mongo_auto_dump
+        ./dataSync.sh $MONGO_URI 
