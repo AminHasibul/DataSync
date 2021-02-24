@@ -21,5 +21,5 @@ jobs:
       # https://github.com/actions/virtual-environments/issues/1207
       run: |
         # sudo ln -sf /run/systemd/resolve/resolv.conf /etc/resolv.conf
-        mkdir mongodb_daily_dump
+      # mkdir mongodb_daily_dump
         ./dataSync.sh $MONGO_URI 
